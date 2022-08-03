@@ -7,9 +7,9 @@ with open("./config.json", mode="r") as file:
 
 username = data["username"]
 github_token = data["github_token"]
-target_dir = input()
-repo = input()
-branch = input()
+target_dir = input("Target directory to clone to: ")
+repo = input("Repo owner and its name")
+branch = input("Branch of the repo to clone")
 remote = f"https://{username}:{github_token}@github.com/{repo}.git"
 
 try:
