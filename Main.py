@@ -1,5 +1,5 @@
 from git import Repo
-import os, json
+import os, json, shutil
 
 
 with open("./config.json", mode="r") as file:
@@ -8,12 +8,12 @@ with open("./config.json", mode="r") as file:
 username = data["username"]
 github_token = data["github_token"]
 target_dir = input("Target directory to clone to: ")
-repo = input("Repo owner and its name")
-branch = input("Branch of the repo to clone")
+repo = input("Repo owner and its name: ")
+branch = input("Branch of the repo to clone: ")
 remote = f"https://{username}:{github_token}@github.com/{repo}.git"
 
 try:
-    os.remove(target_dir)
+    shutil.rmtree(target_dir)
     print(f"Directory {target_dir} was removed successfully")
 except FileNotFoundError:
     os.mkdir(target_dir)
