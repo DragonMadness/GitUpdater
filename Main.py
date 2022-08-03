@@ -14,7 +14,9 @@ remote = f"https://{username}:{github_token}@github.com/{repo}.git"
 
 try:
     os.remove(target_dir)
+    print(f"Directory {target_dir} was removed successfully")
 except FileNotFoundError:
     os.mkdir(target_dir)
-    Repo.clone_from(remote, target_dir, branch=branch)
-    print("Cloned successfully")
+print("Started cloning the repo...")
+Repo.clone_from(remote, target_dir, branch=branch)
+print("Cloned successfully")
