@@ -1,13 +1,9 @@
-from json import loads
 from os import mkdir
 from shutil import rmtree
 
 from git import Repo
 
 from config import GITHUB_TOKEN, USERNAME
-
-with open("./config.json", mode="r") as file:
-    data = loads(file.read())
 
 target_dir: str = input('Target directory to clone to: ')
 repo: str = input('Repo owner and its name: ')
